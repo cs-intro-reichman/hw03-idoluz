@@ -8,7 +8,7 @@ public class Calendar1 {
 	static int year = 1900;
 	static int dayOfWeek = 2;     // 1.1.1900 was a Monday
 	static int nDaysInMonth = 31; // Number of days in January
-	
+	static int numSun = 0;
 	/** 
 	 * Prints the calendars of all the years in the 20th century. Also prints the  
 	 * number of Sundays that occured on the first day of the month during this period.
@@ -21,7 +21,16 @@ public class Calendar1 {
 	    //// Write the necessary initialization code, and replace the condition
 	    //// of the while loop with the necessary condition 
 	 	while (year < 2000) {
-	 		//// Write the body of the while 		
+	 				
+			if ( dayOfMonth == 1 && dayOfWeek == 1) {
+				numSun += 1;
+			 }
+				if (dayOfWeek == 1) {
+				System.out.println(dayOfMonth + "/" + month + "/" + year + " Sunday");
+				} else {
+				System.out.println(dayOfMonth + "/" + month + "/" + year);
+			}
+
 	 		advance();
 	 		debugDaysCounter++;
 	 		//// If you want to stop the loop after n days, replace the condition of the
@@ -30,7 +39,7 @@ public class Calendar1 {
 	 			break;
 	 		}
         }
-	 	//// Write the necessary ending code here
+		System.out.println("During the 20th century, " + numSun + " Sundays fell on the first day of the month");
 	 }
 	
 	 // Advances the date (day, month, year) and the day-of-the-week.
@@ -50,8 +59,7 @@ public class Calendar1 {
 				month = 1;
 				year += 1;
 			}
-			System.out.println(dayOfMonth + "/" + month + "/" + year);
-
+			
 		
 	 } 
 		 
