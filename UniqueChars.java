@@ -7,15 +7,24 @@ public class UniqueChars {
 
     public static String uniqueChars(String s) {
         
-            String newString = "";
-            char space = 32;
-               for (int i = 0; i < s.length(); i++){    
-                     newString = newString + s.charAt(i);              
-                   if (newString.indexOf(s.charAt(i)) == - 1 || (s.charAt(i) == space) ){
-                     newString = newString + s.charAt(i);
-               }
-            }
-      
-                      return newString;
+        String newStr = "" + s.charAt(0);
+		boolean exist = false;
+		for(int i = 1; i < s.length(); i++){
+			if(s.charAt(i) == ' ') newStr = newStr + s.charAt(i);
+			else{
+			for(int j = 0; j < newStr.length(); j++){
+				if(newStr.charAt(j) == s.charAt(i)) exist = true;
+			}
+			if (!exist){
+				newStr = newStr + s.charAt(i);
+			}
+			
+		}
+		exist = false;		
+				
     }
+	return newStr;
 }
+}
+    
+
