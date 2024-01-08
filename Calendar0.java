@@ -7,7 +7,7 @@ public class Calendar0 {
 	// Gets a year (command-line argument), and tests the functions isLeapYear and nDaysInMonth.
 	public static void main(String args[]) {
 		int year = Integer.parseInt(args[0]);
-		isLeapYearTest(year);
+		
 		nDaysInMonthTest(year);
 	}
 		 
