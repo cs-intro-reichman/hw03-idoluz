@@ -20,13 +20,13 @@ public class Calendar1 {
 	    int debugDaysCounter = 0; 
 	    //// Write the necessary initialization code, and replace the condition
 	    //// of the while loop with the necessary condition 
-	 	while (true) {
+	 	while (year < 2000) {
 	 		//// Write the body of the while 		
 	 		advance();
 	 		debugDaysCounter++;
 	 		//// If you want to stop the loop after n days, replace the condition of the
 	 		//// if statement with the condition (debugDaysCounter == n)
-	 		if (false) { 
+	 		if (year > 1999) { 
 	 			break;
 	 		}
         }
@@ -37,13 +37,30 @@ public class Calendar1 {
 	 // If the month changes, sets the number of days in this month.
 	 // Side effects: changes the static variables dayOfMonth, month, year, dayOfWeek, nDaysInMonth.
 	 private static void advance() {
-		// Replace this comment with your code
+		    dayOfMonth += 1;
+			dayOfWeek += 1;
+			if (dayOfWeek == 8) {
+				dayOfWeek = 1;
+			}
+			if (nDaysInMonth(month, year) + 1 == dayOfMonth) {
+				dayOfMonth = 1;
+				month += 1;
+			}
+			if (month == 13) {
+				month = 1;
+				year += 1;
+			}
+			System.out.println(dayOfMonth + "/" + month + "/" + year);
+
+		
 	 } 
 		 
     // Returns true if the given year is a leap year, false otherwise.
 	private static boolean isLeapYear(int year) {
-	    // Replace the following statement with your code
-		return false;
+		if(((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0))) == true){
+			return true;  
+		}
+	return false;
 	}
 	 
 	// Returns the number of days in the given month and year.
@@ -51,7 +68,49 @@ public class Calendar1 {
 	// February has 28 days in a common year, and 29 days in a leap year.
 	// All the other months have 31 days.
 	private static int nDaysInMonth(int month, int year) {
-		// Replace the following statement with your code
-		return 0;
+		switch (month) {
+			case 1:
+			return 31;
+
+			case 2: if(isLeapYear(year) == true) {
+			return 29;
+			}
+			return 28;
+
+			case 3:
+			return 31;
+
+			case 4:
+			return 30;
+
+			case 5:
+			return 31;
+
+			case 6:
+			return 30;
+
+			case 7:
+			return 31;
+
+			case 8:
+			return 31;
+
+			case 9:
+			return 30;
+
+			case 10:
+			return 31;
+
+			case 11:
+			return 30;
+
+			case 12:
+			return 31;
+
+			default:
+			return 0;
+				
+		}
+		
 	}
 }
